@@ -1,15 +1,7 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-
-import Welcome from "./features/welcome/welcome";
+import Router from "./router";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Welcome />} index={true} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <Router />;
 }
 
 export default App;
