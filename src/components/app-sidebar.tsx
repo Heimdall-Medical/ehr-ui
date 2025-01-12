@@ -18,7 +18,7 @@ import {
 const items = [
   {
     title: ROUTES.DASHBOARD.NAME,
-    url: "#",
+    url: `/${ROUTES.DASHBOARD.PATH}`,
     icon: LayoutDashboard,
   },
   {

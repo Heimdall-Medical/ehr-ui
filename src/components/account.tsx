@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { ChevronsUpDown, LogOut, Settings } from "lucide-react";
 
 import { Avatar, AvatarFallback } from "./ui/avatar";
@@ -16,7 +17,13 @@ import {
 } from "./ui/sidebar";
 
 export function Account() {
+  const { logout } = useAuth0();
+
   const { isMobile } = useSidebar();
+
+  const handleLogout = () => {
+    logout({ logoutParams: { returnTo: window.location.origin } });
+  };
 
   return (
     <SidebarMenu>
@@ -45,7 +52,7 @@ export function Account() {
                 <Settings />
                 Settings
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={handleLogout}>
                 <LogOut color="red" />
                 Logout
               </DropdownMenuItem>
