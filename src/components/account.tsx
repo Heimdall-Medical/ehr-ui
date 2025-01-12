@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { ChevronsUpDown, LogOut, Settings } from "lucide-react";
 
-import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Avatar, AvatarImage } from "./ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,7 @@ import {
 } from "./ui/sidebar";
 
 export function Account() {
-  const { logout } = useAuth0();
+  const { logout, user } = useAuth0();
 
   const { isMobile } = useSidebar();
 
@@ -32,11 +32,10 @@ export function Account() {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton size="lg">
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarFallback className="rounded-lg">User</AvatarFallback>
+                <AvatarImage src={user?.picture} alt="image of current user" />
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">Username</span>
-                <span className="truncate font-xs">Email</span>
+                <span className="truncate font-semibold">{user?.nickname}</span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -54,7 +53,7 @@ export function Account() {
               </DropdownMenuItem>
               <DropdownMenuItem onClick={handleLogout}>
                 <LogOut color="red" />
-                Logout
+                <span>Logout</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
