@@ -1,6 +1,6 @@
 import { LoaderCircle } from "lucide-react";
 
-export default function Callback() {
+function Callback() {
   return (
     <div className="flex h-dvh flex-col items-center justify-center">
       <LoaderCircle className="animate-spin" size={32} />
@@ -8,3 +8,5 @@ export default function Callback() {
     </div>
   );
 }
+
+export default Callback;
