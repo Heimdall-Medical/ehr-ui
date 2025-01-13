@@ -51,8 +51,11 @@ export function Account() {
                 <Settings />
                 Settings
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={handleLogout}>
-                <LogOut color="red" />
+              <DropdownMenuItem
+                className="text-red-600 focus:bg-red-600 focus:text-white"
+                onClick={handleLogout}
+              >
+                <LogOut />
                 <span>Logout</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
